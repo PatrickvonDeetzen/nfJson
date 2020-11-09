@@ -66,10 +66,12 @@ endif
 
 RETURN m.oVfp
 
-***************************************
-Function addArray(o2add2,aName,a2add)
-***************************************
 
-AddProperty(o2add2,(aName+'(1)'))
+***************************************
+*** Because of the short names this function threw an error, when a cursor had a field "aname" in it...
+Function addArray
+LPARAMETERS _o2add2,_aName,_a2add
+***************************************
+AddProperty(_o2add2,(_aName+'(1)'))
 
-Acopy(a2add,o2add2.&aName)
+Acopy(_a2add,_o2add2.&_aName)
